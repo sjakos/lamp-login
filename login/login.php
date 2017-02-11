@@ -14,7 +14,8 @@
 </head>
 <body>
     <div class="container">  
-        <div class="row">  
+        <div class="row">
+         <div class="col"> 
             <form>
                 <div class="form-group">
                     <label for="userName">User Name</label>
@@ -30,8 +31,9 @@
                         Remember my credentials
                     </label>
                 </div>
-                <input id="submit" type="submit" class="btn btn-outline-primary">
+                <input id="submit" type="submit" class="btn btn-block btn-outline-primary">
             </form>
+         </div> 
         </div>
     </div>
 </body>
