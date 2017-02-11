@@ -10,5 +10,11 @@
     <link rel="stylesheet" href="css/customstyle.css">
 </head>
 <body>
-    
+    <div class="container">  
+        <div class="row">  
+            <div>
+Placeholder text
+            </div>
+        </div>
+    </div>
 </body>
