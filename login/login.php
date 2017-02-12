@@ -18,20 +18,20 @@
          <div class="col"> 
             <form>
                 <div class="form-group">
-                    <label for="userName">User Name</label>
-                    <input id="userName" type="text" class="form-control" placeholder="User Name">
+                    <label for="loginUsrNm">User Name</label>
+                    <input id="loginUsrNm" type="text" class="form-control" placeholder="User Name">
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input id="password" type="text" class="form-control" placeholder="Password">
+                    <label for="loginPwd">Password</label>
+                    <input id="loginPwd" type="text" class="form-control" placeholder="Password">
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input id="rememberCreds" type="checkbox" class="form-check-input">
+                        <input id="remCreds" type="checkbox" class="form-check-input">
                         Remember my credentials
                     </label>
                 </div>
-                <input id="submit" type="submit" class="btn btn-block btn-outline-primary">
+                <button id="submit" type="submit" class="btn btn-block btn-outline-primary">Log in</button>
             </form>
          </div> 
         </div>
