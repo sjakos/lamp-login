@@ -16,7 +16,7 @@
     <div class="container">  
         <div class="row">
          <div class="col"> 
-            <form>
+            <form class="loginForm">
                 <div class="form-group">
                     <label for="loginUsrNm">User Name</label>
                     <input id="loginUsrNm" type="text" class="form-control" placeholder="User Name">
