@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="css/customstyle.css">
 </head>
 <body>
@@ -31,7 +32,7 @@
                         Remember my credentials
                     </label>
                 </div>
-                <button id="submit" type="submit" class="btn btn-block btn-outline-primary">Log in</button>
+                <button id="submit" type="submit" class="btn btn-block btn-primary">Log in</button>
             </form>
          </div> 
         </div>
