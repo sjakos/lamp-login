@@ -15,8 +15,6 @@
 </head>
 <body>
     <div class="container">  
-        <div class="row">
-         <div class="col"> 
             <form class="loginForm">
                 <div class="form-group">
                     <label for="loginUsrNm">User Name</label>
@@ -34,7 +32,5 @@
                 </div>
                 <button id="submit" type="submit" class="btn btn-block btn-primary">Log in</button>
             </form>
-         </div> 
-        </div>
     </div>
 </body>
