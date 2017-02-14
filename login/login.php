@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container">  
-            <form class="loginForm">
+            <form id="loginForm">
                 <div class="form-group">
                     <label for="loginUsrNm">User Name</label>
                     <input id="loginUsrNm" type="text" class="form-control" placeholder="User Name">
