@@ -1,9 +1,5 @@
 /*Custom style sheet to override Bootstrap styles*/
-body{
-    padding: 40px 0px;
-    font-family: 'Quicksand', sans-serif;
-}
-
+body,
 button,
 input,
 optgroup,
@@ -12,8 +8,15 @@ textarea {
      font-family: 'Quicksand', sans-serif;
 }
 
+.center-element{ 
+position: absolute;
+left: 50vw;
+top: 50vh;
+transform: translate(-50%, -50%);
+}
+
 #loginForm{
-    max-width: 400px;
+    width: 265px;
     padding: 10px;
     margin: 0 auto;
     background-color: #99C3E4;
