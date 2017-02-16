@@ -24,12 +24,6 @@
                     <label for="loginPwd">Password</label>
                     <input id="loginPwd" type="password" class="form-control" placeholder="Password">
                 </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input id="remCreds" type="checkbox" class="form-check-input">
-                        Remember my credentials
-                    </label>
-                </div>
                 <button id="submit" type="submit" class="btn btn-block btn-primary">Log in</button>
             </form>
     </div>
