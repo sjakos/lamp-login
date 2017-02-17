@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container"> 
-            <form class="center-element" id="loginForm">
+            <form class="center-element" id="loginForm" action="validate.php" method="POST">
                 <div class="form-group">
                     <label for="loginUsrNm">User Name</label>
                     <input id="loginUsrNm" name="loginUsrNm" type="text" class="form-control" placeholder="User Name">
