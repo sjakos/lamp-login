@@ -1,4 +1,3 @@
-
 <!DOCTYPE html5>
 <html lang="en">
 
@@ -14,7 +13,12 @@
 </head>
 
 <body>
-
+    <div class="container">
+        <div class="center-element jumbotron shadow">
+            <h1>Welcome!</h1>
+            <a id="logoutBtn" href="#" class="btn btn-block btn-danger">Log out</a>
+        </div>
+    </div>
 </body>
 
 </html>
