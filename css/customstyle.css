@@ -15,11 +15,14 @@ top: 50vh;
 transform: translate(-50%, -50%);
 }
 
+.shadow{
+    box-shadow: 0px 5px 6px 6px rgba(0,0,0,0.15), 0 5px 7px rgba(0,0,0,0.2)
+}
+
 #loginForm{
     width: 265px;
     padding: 10px;
     margin: 0 auto;
     background-color: #99C3E4;
     border-radius: 0.3rem;
-    box-shadow: 0px 5px 6px 6px rgba(0,0,0,0.15), 0 5px 7px rgba(0,0,0,0.2)
 }
