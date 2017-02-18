@@ -26,3 +26,7 @@ transform: translate(-50%, -50%);
     background-color: #99C3E4;
     border-radius: 0.3rem;
 }
+
+#logoutBtn{
+    color: white !important;
+}
