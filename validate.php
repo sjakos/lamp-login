@@ -4,17 +4,15 @@ $nameLength = strlen($_POST["loginUsrNm"]);
 $passLength = strlen($_POST["loginPwd"]);
 $invalidMsg = "<h1>User Name or Password is invalid:</h1>";
 $validCheck = 0;
-$nameMin = 5;
-$nameMax = 100;
-$passMin = 5;
-$passMax = 100;
+$nameLimit = [5,100];
+$passLimit = [5,100];
 
-if (($nameMin<=$nameLength) && ($nameLength<=$nameMax)) {
+if (($nameLimit[0]<=$nameLength) && ($nameLength<=$nameLimit[1])) {
     $validCheck++;
 } else {
     $invalidMsg .= "<p>Username should be between 5 and 100 characters</p>";
 }
-if (($passMin<=$passLength) && ($passLength<=$passMax)) {
+if (($passLimit[0]<=$passLength) && ($passLength<=$nameLimit[1])) {
     $validCheck++;
 } else {
     $invalidMsg .= "<p>User password should be between 5 and 100 characters</p>";
