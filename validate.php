@@ -10,12 +10,11 @@ $incoming = array(
 );
 
 $invalidMsg = "<h1>User Name or Password is invalid:</h1>";
-$validCheck = 0;
 $nameLimit = [5,100];
 
 $checkStrings = array(
-    'username' => ['Your username', $nameLimit], 
-    'password' => ['Your password', $passLimit],
+    'username' => 'Your username', 
+    'password' => 'Your password',
 );
 
 if (ValidateFormStringData($checkStrings, $incoming, $nameLimit, $invalidMsg)) {
