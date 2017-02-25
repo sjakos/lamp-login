@@ -14,6 +14,17 @@
  }
 
 // TODO: how to have a function populate and output value, not just receive input data
+
+/**
+* Validate array of strings' lengths and provide error message when they do not match parameters
+*
+* @param string[] $checkStrings The array that controls what incoming strings to check and holds the values for the error message 
+* @param string[] $incoming The array of strings to check using ValidateStringLength
+* @param int[] $nameLimit A two integer array to pass to ValidateStringLength for the min and max length
+* @param string &$invalidMsg Error message string to concat from function
+* 
+* @return bool True if all strings are valid, else false
+*/
 function ValidateFormStringData($checkStrings, $incoming, $nameLimit, &$invalidMsg) {
 
     $validCheck = 0;
@@ -28,7 +39,5 @@ function ValidateFormStringData($checkStrings, $incoming, $nameLimit, &$invalidM
                 $nameLimit[1]);
         }
     }
-
-    // TODO: What is the difference between == and ===
     return $validCheck === count($checkStrings);
 }
