@@ -1,6 +1,7 @@
 <?php
 //TODO: Look up and use PHPUnit
-include dirname(__FILE__) . '/../helpers.php';
+include __DIR__ . '/../app/src/helpers.php';
+include  __DIR__ . '/../app/src/StrLenValidator.php';
 
 $cases = array(
     'String longer than expected (should FAIL): ' => ['test', 1, 5],
@@ -14,6 +15,15 @@ $cases = array(
 foreach ($cases as $title => $case_data) {
     echo $case_data[0] . ' --> ' . $case_data[2] . ' --> ';
     echo $title;
-    echo ValidateStringLength($case_data[0], $case_data[1], $case_data[2]) ? 'PASS' : 'FAIL';
+    // echo ValidateStringLength($case_data[0], $case_data[1], $case_data[2]) ? 'PASS' : 'FAIL';
     echo "\n";
+}
+
+$validate = new StrLenValidator(5,10);
+$value1 = 'fail';
+$value2 = 'success';
+try {
+    echo $validate->validateStr($value1);
+} catch (Exception $e) {
+ echo $e->getMessage();
 }
