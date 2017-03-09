@@ -1,4 +1,9 @@
-<form class="center-element shadow" id="loginForm" action='/../app/src/validate.php' method="POST">
+<?php 
+if (isset ($_SESSION['errors']) && strlen(trim($_SESSION['errors'])) > 0) {
+  echo sprintf('<div class="alert alert-danger">%s</div>', $_SESSION['errors']);
+} 
+?>
+<form class="center-element shadow" id="loginForm" action='/../app/src/validate.php' method="POST">  
     <div class="form-group">
       <label for="loginUsrNm">User Name</label>
       <input id="loginUsrNm" name="loginUsrNm" type="text" class="form-control" placeholder="User Name">

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // TODO: read about include, include_once, require and reqiure_once
 include_once './helpers.php';
@@ -18,7 +19,15 @@ $checkStrings = array(
 );
 
 if (ValidateFormStringData($checkStrings, $incoming, $nameLimit, $invalidMsg)) {
-    echo "<h1>All data is valid!</h1>";
+    if ($incoming['username'] === 'hello' && $incoming['password'] === 'world') {
+        $_SESSION['username'] = $incoming['username'];
+        header('location: /public/welcome.php');
+    } else {
+        $_SESSION['errors'] = 'Invalid username or password.';
+        header('location: /public/');
+    }
+
 } else {
-    echo "$invalidMsg";
+    $_SESSION['errors'] = $invalidMsg;
+    header('location: /public/');
 }

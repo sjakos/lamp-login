@@ -1,4 +1,6 @@
-<!--Index page for log-in project using HTML and PHP-->
+<?php 
+session_start();
+?>
 <!DOCTYPE html5>
 <head>
     <title>Sam's Log-in</title>
