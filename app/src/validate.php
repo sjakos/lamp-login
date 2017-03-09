@@ -10,7 +10,7 @@ $incoming = array(
     'password' => $_POST['loginPwd'],
 );
 
-$invalidMsg = "<h1>User Name or Password is invalid:</h1>";
+$invalidMsg = "User Name or Password is invalid:<br>";
 $nameLimit = [5,100];
 
 $checkStrings = array(

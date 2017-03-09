@@ -33,7 +33,7 @@ function ValidateFormStringData($checkStrings, $incoming, $nameLimit, &$invalidM
         if (ValidateStringLength($incoming[$key], $nameLimit[0], $nameLimit[1])) {
             $validCheck++;
         } else {
-            $invalidMsg .= sprintf("<p>%s should be between %d and %d characters</p>", 
+            $invalidMsg .= sprintf("%s should be between %d and %d characters<br>", 
                 $checkStrings[$key],
                 $nameLimit[0],
                 $nameLimit[1]);
