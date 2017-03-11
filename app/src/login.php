@@ -1,8 +1,7 @@
-<?php 
-if (isset ($_SESSION['errors']) && strlen(trim($_SESSION['errors'])) > 0) {
-  echo sprintf('<div class="alert alert-danger">%s</div>', $_SESSION['errors']);
-} 
-?>
+<?php if (isset ($_SESSION['errors']) && strlen(trim($_SESSION['errors'])) > 0): ?>
+<div class="alert alert-danger"><?php echo $_SESSION['errors'];?></div>
+<?php endif; ?>
+
 <form class="center-element shadow" id="loginForm" action='/../app/src/validate.php' method="POST">  
     <div class="form-group">
       <label for="loginUsrNm">User Name</label>
