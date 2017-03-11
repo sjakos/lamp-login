@@ -1,7 +1,7 @@
 <?php 
 session_start();
 ?>
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <head>
     <title>Sam's Log-in</title>
     <meta charset="utf-8">
