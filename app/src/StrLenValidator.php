@@ -29,7 +29,7 @@ class StrLenValidator
     }
 
     public function validationPassed(){
-        if ((isset($this->errors) && (count($this->errors)) < 0)){
+        if ((isset($this->errors) && (count($this->errors)) > 0)){
             return false;
         }
         return true;
