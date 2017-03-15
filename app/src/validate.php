@@ -19,7 +19,7 @@ if ($checkStr->validationPassed()) {
         $_SESSION['username'] = $incoming['username'];
         header('location: /public/welcome.php');
     } else {
-        $_SESSION['errors'] = 'Invalid username or password.';
+        $_SESSION['errors'][] = 'Invalid username or password.';
         header('location: /public/');
     }
 } else {
