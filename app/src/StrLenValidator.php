@@ -8,25 +8,30 @@ class StrLenValidator
     public $minStrLen;
     public $maxStrLen;
     public $string;
+    public $errors;
+    public $input;
 
-    public function __construct($minStrLen = NULL, $maxStrLen = NULL) 
+    public function __construct(int $minStrLen = NULL, int $maxStrLen = NULL) 
     {
         $this->minStrLen = $minStrLen;
         $this->maxStrLen = $maxStrLen;
     }
 
-    public function validateStr($string) 
+    public function validateStr($input,$string) 
     {
-        if (is_string($string))
-        {
           $strCheck = strlen($string) >= $this->minStrLen && strlen($string) <= $this->maxStrLen;
             if($strCheck === false)
             {
-                throw new Exception("input must be between $this->minStrLen and $this->maxStrLen characters.");
+                $this->errors[] = "$input must be between $this->minStrLen and $this->maxStrLen characters.";
                 return false;
             }
             return $strCheck;
+    }
+
+    public function validationPassed(){
+        if (!(isset($this->errors) && (count($this->errors)) < 0)){
+            return false;
         }
-        return false;
+        return true;
     }
 }

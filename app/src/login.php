@@ -1,6 +1,14 @@
-<?php if (isset ($_SESSION['errors']) && strlen(trim($_SESSION['errors'])) > 0): ?>
-<div class="alert alert-danger"><?php echo $_SESSION['errors'];?></div>
-<?php endif; ?>
+<?php if (isset ($_SESSION['errors'])): ?>
+<div class="alert alert-danger">
+  <h1>Login Failed:</h1>
+  <?php foreach ($_SESSION['errors'] as $key=>$error):?>
+      <p><?php echo ucfirst($error);?></p>
+  <?php endforeach; ?>
+</div>
+<?php 
+unset ($_SESSION['errors']);
+endif; 
+?>
 
 <form class="center-element shadow" id="loginForm" action='/../app/src/validate.php' method="POST">  
     <div class="form-group">
