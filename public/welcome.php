@@ -23,7 +23,7 @@ if (!(isset($_SESSION['username']) && strlen(trim($_SESSION['username'])) > 0))
     <div class="container">
         <div class="center-element jumbotron shadow">
             <h1>Welcome!</h1>
-            <h2><?php echo $_SESSION['username'];?></h2>
+            <h2 class="text-center"><?php echo $_SESSION['username'];?></h2>
             <a id="logoutBtn" href="/app/src/logout.php" class="btn btn-block btn-danger">Log out</a>
         </div>
     </div>
