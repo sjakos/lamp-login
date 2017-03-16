@@ -2,6 +2,9 @@
 
 /**
  * Validator class to check string length
+ *
+ * @param int $minStrLen Minimum string length for validation
+ * @param int $maxStrLen Maximum string length for validation
  */
 class StrLenValidator
 {
@@ -17,6 +20,14 @@ class StrLenValidator
         $this->maxStrLen = $maxStrLen;
     }
 
+/**
+* Validates if string meets string length parameters
+* @param string $string String to be checked
+* @param string $input Form input of string to be checked
+* 
+* @return bool True if meets string length parameters
+*/
+
     public function validateStr($input,$string) 
     {
           $strCheck = strlen($string) >= $this->minStrLen && strlen($string) <= $this->maxStrLen;
@@ -27,7 +38,11 @@ class StrLenValidator
             }
             return $strCheck;
     }
-
+/**
+* Checks if errors were set during validation
+*
+* @return bool Returns true if no errors were set
+*/
     public function validationPassed(){
         if ((isset($this->errors) && (count($this->errors)) > 0)){
             return false;
