@@ -1,21 +1,26 @@
 <?php
 session_start();
 include_once './StrLenValidator.php';
+include_once './DBconnect.php';
 
-// Capture login and password and validate
+$checkStr = new StrLenValidator(5,100);
+$db = new DBconnect();
+
 $incoming = array(
     'username' => trim($_POST['loginUsrNm']),
     'password' => trim($_POST['loginPwd']),
 );
 
-$checkStr = new StrLenValidator(5,100);
-
 foreach ($incoming as $input => $string) {
     $checkStr->validateStr($input,$string);
 }
 
+$checkCredentials = $db->prepare('SELECT id FROM users WHERE name=? and pass=?');
+$checkCredentials->execute([$incoming['username'],$incoming['password']]);
+$userCheck = $checkCredentials->rowCount();
+
 if ($checkStr->validationPassed()) {
-    if ($incoming['username'] === 'hello' && $incoming['password'] === 'world') {
+    if ($userCheck === 1) {
         $_SESSION['username'] = $incoming['username'];
         header('location: /public/welcome.php');
     } else {
