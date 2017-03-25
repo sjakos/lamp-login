@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-  include_once 'validate.php';
+  include_once 'ValidateLogin.php';
   $validator = new ValidateLogin();
   if($validator->validate()){
     $_SESSION['username'] = $validator->getUsername();
