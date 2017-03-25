@@ -1,16 +1,25 @@
-<?php if (isset ($_SESSION['errors'])): ?>
-<div class="alert alert-danger">
-  <h1>Login Failed:</h1>
-  <?php foreach ($_SESSION['errors'] as $key=>$error):?>
-      <p><?php echo ucfirst($error);?></p>
-  <?php endforeach; ?>
-</div>
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+  include_once 'validate.php';
+  $validator = new ValidateLogin();
+  if($validator->validate()){
+    $_SESSION['username'] = $validator->getUsername();
+    header('location: ./welcome.php');
+   } else {
+?>
+  <div class="alert alert-danger">
+    <h1>Login Failed:</h1>
+    <?php foreach ($validator->errors as $key=>$error):?>
+        <p><?php echo ucfirst($error);?></p>
+    <?php endforeach; ?>
+  </div>
 <?php 
-unset ($_SESSION['errors']);
-endif; 
+    }
+  }
 ?>
 
-<form class="center-element shadow" id="loginForm" action='/../app/src/validate.php' method="POST">  
+<form class="center-element shadow" id="loginForm" action="" method="POST">  
     <div class="form-group">
       <label for="loginUsrNm">User Name</label>
       <input id="loginUsrNm" name="loginUsrNm" type="text" class="form-control" placeholder="User Name">

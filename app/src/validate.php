@@ -1,33 +1,50 @@
-<?php
-session_start();
-include_once './StrLenValidator.php';
-include_once './DBconnect.php';
+<?php 
 
-$checkStr = new StrLenValidator(5,100);
-$db = new DBconnect();
+require_once 'StrLenValidator.php';
+require_once 'DBconnect.php'; 
 
-$incoming = array(
-    'username' => trim($_POST['loginUsrNm']),
-    'password' => trim($_POST['loginPwd']),
-);
+class ValidateLogin
+{
+    private $username;
+    private $password;
+    private $db;
+    private $checkStr;
+    public  $errors;
 
-foreach ($incoming as $input => $string) {
-    $checkStr->validateStr($input,$string);
-}
+    public function __construct()
+    {
+        $this->checkStr = new StrLenValidator(5,100);
+        $this->db = new DBconnect(); 
 
-$checkCredentials = $db->prepare('SELECT id FROM users WHERE name=? and pass=?');
-$checkCredentials->execute([$incoming['username'],$incoming['password']]);
-$userCheck = $checkCredentials->rowCount();
-
-if ($checkStr->validationPassed()) {
-    if ($userCheck === 1) {
-        $_SESSION['username'] = $incoming['username'];
-        header('location: /public/welcome.php');
-    } else {
-        $_SESSION['errors'][] = 'Invalid username or password.';
-        header('location: /public/');
+        $this->username = isset($_POST['loginUsrNm']) ? $_POST['loginUsrNm'] : $this->errors[] = 'username cannot be empty';
+        $this->password = isset($_POST['loginPwd']) ? $_POST['loginPwd'] : $this->errors[] = 'password cannot be empty';
     }
-} else {
-    $_SESSION['errors'] = $checkStr->errors;
-    header('location: /public/');
+
+    public function validate()
+    {
+        $this->checkStr->validateStr('username',$this->username);
+        $this->checkStr->validateStr('password',$this->password);
+
+        if ($this->checkStr->validationPassed()) {
+            $checkCredentials = $this->db->prepare('SELECT id FROM users WHERE name=? and pass=?');
+            $checkCredentials->execute([$this->username,$this->password]);
+            $loginCheck = $checkCredentials->rowCount();
+            if ($loginCheck === 1) {
+                return true;
+            } else {
+                $this->errors[] = 'invalid username or password';
+                return false;
+            }
+        } else {
+            foreach ($this->checkStr->errors as $key => $value) {
+               $this->errors[] = $value;
+            }
+            return false;
+        }
+    }
+
+    public function getUsername()
+    {
+        return htmlspecialchars($this->username);
+    }
 }
